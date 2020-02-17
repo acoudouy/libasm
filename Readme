@@ -1,0 +1,33 @@
+NASM Assembly quick Reference ("Cheat Sheet")
+https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html
+https://gist.github.com/justinian/385c70347db8aca7ba93e87db90fc9a6
+https://www.bencode.net/blob/nasmcheatsheet.pdf
+
+macOS BSD System Calls
+https://sigsegv.pl/osx-bsd-syscalls/
+
+NASM Tutorial
+https://cs.lmu.edu/~ray/notes/nasmtutorial/
+
+Assembleur
+http://pageperso.lif.univ-mrs.fr/~alexis.nasr/Ens/Compilation/cm06_x86.pdf
+
+instructions de transfert : registres ↔ memoire ´
+- Copie : mov
+- Gestion de la pile : push, pop
+
+instructions de calcul
+- Arithmetique : ´ add, sub, mul, div
+- Logique : and, or
+- Comparaison : cmp
+
+instructions de saut
+- sauts inconditionnels : jmp
+- sauts conditionnels : je, jne, jg, jl
+- appel et retour de procedure : ´ call, ret
+
+
+rdi : 1er arg d'une fonction
+rsi : 2eme
+rdx : 3eme
+rcx : 4eme
