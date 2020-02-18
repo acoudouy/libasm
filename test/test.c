@@ -3,6 +3,7 @@
 #include <string.h>
 #include <fcntl.h>
 #include "../include/libasm.h"
+#include "../include/libasm_bonus.h"
 
 /*
 void		test_strlen()
@@ -183,7 +184,7 @@ void		test_read()
 	printf("[%s]\n", buf);
 	close(fd);
 }
-*/
+
 void			test_strcmp()
 {
 	char *a = "qwerty";
@@ -203,6 +204,27 @@ void			test_strcmp()
 	printf("%d | \n", strcmp("",""));
 	printf("%d | \n", ft_strcmp("",""));
 }
+*/
+
+void			test_list_size()
+{
+	t_list		el1;
+	t_list		el2;
+	t_list		el3;
+	t_list		el4;
+	t_list		el5;
+	
+	el1.next = &el2;
+	el2.next = &el3;
+	el3.next = &el4;
+	el4.next = &el5;
+	el5.next = 0;
+
+	printf("size lise = %d\n", ft_list_size(0));
+	printf("size lise = %d\n", ft_list_size(&el5));
+	printf("size lise = %d\n", ft_list_size(&el1));
+}
+
 int         main()
 {
 //    test_strlen();
@@ -210,6 +232,7 @@ int         main()
   //	test_write();
  // 	test_strdup();
 //  	test_read();
-	test_strcmp();
+//	test_strcmp();
+	test_list_size();
     return (0);
 }
