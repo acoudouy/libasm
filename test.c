@@ -58,7 +58,7 @@ void		test_strcpy()
     printf("dest: [%s]\n", dst);
 }
 */
-
+/*
 void		test_write()
 {
 	int			fd;
@@ -114,11 +114,32 @@ void		test_write()
 	ft_write(1, "", 0);
 	printf("\n");
 }
+*/
 
+void		test_strdup()
+{
+	printf("\x1b[32mft_strdup :\x1b[0m\n");
+	printf("	\x1b[34m[1]\x1b[0m \x1b[36m''\x1b[0m\n");
+	printf("		\x1b[33m<string.h>\x1b[0m  %s\n", strdup(""));
+	printf("		\x1b[33m<libasm.h>\x1b[0m  %s\n", ft_strdup(""));
+	printf("	\x1b[34m[2]\x1b[0m \x1b[36m'toto'\x1b[0m\n");
+	printf("		\x1b[33m<string.h>\x1b[0m  %s\n", strdup("toto"));
+	printf("		\x1b[33m<libasm.h>\x1b[0m  %s\n", ft_strdup("toto"));
+	printf("	\x1b[34m[3]\x1b[0m \x1b[36m'0123456789'\x1b[0m\n");
+	printf("		\x1b[33m<string.h>\x1b[0m  %s\n", strdup("0123456789"));
+	printf("		\x1b[33m<libasm.h>\x1b[0m  %s\n", ft_strdup("0123456789"));
+	printf("	\x1b[34m[3]\x1b[0m \x1b[36m'NULL'\x1b[0m\n");
+	printf("		\x1b[33m<string.h>\x1b[0m  %s\n", "SEGMENTATION FAULT");
+	printf("		\x1b[33m<libasm.h>\x1b[0m  %s\n", ft_strdup(NULL));
+}
+
+//#	cmp rdi, 0x0; 				#check if 1st arg is null
+//#	jz _return_error ; 			#if yes, call error
 int         main()
 {
   //  test_strlen();
   //  test_strcpy();
-  	test_write();
+  //	test_write();
+  	test_strdup();
     return (0);
 }

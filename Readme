@@ -1,3 +1,9 @@
+Args d'une fonction:
+rdi : 1er
+rsi : 2eme
+rdx : 3eme
+rcx : 4eme
+
 NASM Assembly quick Reference ("Cheat Sheet")
 https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html
 https://gist.github.com/justinian/385c70347db8aca7ba93e87db90fc9a6
@@ -26,8 +32,5 @@ instructions de saut
 - sauts conditionnels : je, jne, jg, jl
 - appel et retour de procedure : ´ call, ret
 
-
-rdi : 1er arg d'une fonction
-rsi : 2eme
-rdx : 3eme
-rcx : 4eme
+Pour write et read, ce sont des appels systemes:
+http://syscalls.kernelgrok.com/
