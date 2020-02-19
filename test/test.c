@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 #include <fcntl.h>
-#include "../include/libasm.h"
-#include "../include/libasm_bonus.h"
+#include "./include/libasm.h"
+#include "./include/libasm_bonus.h"
 
-/*
+
 void		test_strlen()
 {
 	printf("\x1b[32mft_strlen :\x1b[0m\n");
@@ -97,6 +98,7 @@ void		test_write()
 	int			fd;
 	char		buffer[100];
 
+	printf("\n------------   WRITE    -------------\n");	
 	printf("\x1b[32mft_write :\x1b[0m\n");
 	printf("	\x1b[34m[1]\x1b[0m \x1b[36m'1' '' '0'\x1b[0m\n");
 	printf("		\x1b[33m<unistd.h>\x1b[0m  %zd\n", write(1, "", 0));
@@ -126,7 +128,6 @@ void		test_write()
 	close(fd);
 	remove("ft_write_test");
 	printf("_____________________________________________\n");
-	printf("FT_WRITE\n");
 	write(1, "bonjour", 7);
 	printf("\n");
 	ft_write(1, "bonjour", 7);
@@ -142,6 +143,7 @@ void		test_write()
 
 void		test_strdup()
 {
+	printf("\n------------   STRDUP    -------------\n");	
 	printf("\x1b[32mft_strdup :\x1b[0m\n");
 	printf("	\x1b[34m[1]\x1b[0m \x1b[36m''\x1b[0m\n");
 	printf("		\x1b[33m<string.h>\x1b[0m  %s\n", strdup(""));
@@ -163,7 +165,7 @@ void		test_read()
 	char	dest[100];
 	int		fd;
 	char	buf[10000];
-		printf("_____________________________________________\n");
+	printf("_____________________________________________\n");
 	printf("FT_READ\n");
 	printf("TEST1\n");
 	fd = open("inc/libasm.h", O_RDONLY);
@@ -175,11 +177,11 @@ void		test_read()
 	printf("[%s]\n", buf);
 	close(fd);
 	printf("TEST2\n");
-	fd = open("test_read.txt", O_RDONLY);
+	fd = open("./test/test_read.txt", O_RDONLY);
 	read(fd, buf, 500);
 	printf("[%s]\n", buf);
 	close(fd);
-	fd = open("text_read.txt", O_RDONLY);
+	fd = open("./test/text_read.txt", O_RDONLY);
 	ft_read(fd, buf, 500);
 	printf("[%s]\n", buf);
 	close(fd);
@@ -191,6 +193,7 @@ void			test_strcmp()
 	char *b = "qwertz";
 	char *c = "1235";
 	char *d = "1234";
+	printf("\n------------   STRCMP    -------------\n");
 	printf("Test 1\n");
 	printf("%d | \n", strcmp(a,b));
 	printf("%d | \n", ft_strcmp(a,b));
@@ -204,7 +207,7 @@ void			test_strcmp()
 	printf("%d | \n", strcmp("",""));
 	printf("%d | \n", ft_strcmp("",""));
 }
-*/
+
 
 void			test_list_size()
 {
@@ -220,19 +223,46 @@ void			test_list_size()
 	el4.next = &el5;
 	el5.next = 0;
 
-	printf("size lise = %d\n", ft_list_size(0));
-	printf("size lise = %d\n", ft_list_size(&el5));
-	printf("size lise = %d\n", ft_list_size(&el1));
+	printf("\n------------   LIST SIZE   -------------\n");
+	printf("size list = %d\n", ft_list_size(0));
+	printf("size list = %d\n", ft_list_size(&el5));
+	printf("size list = %d\n", ft_list_size(&el1));
+}
+
+void			test_list_push_front()
+{
+	t_list		*el1;
+	t_list		el2;
+	t_list		el3;
+	t_list		el4;
+	t_list		el5;
+	t_list		new;
+	printf("\n------------LIST PUSH FRONT-------------\n");	
+	el1 = malloc(sizeof(t_list));
+	el1->next = &el2;
+	el2.next = &el3;
+	el3.next = &el4;
+	el4.next = &el5;
+	el5.next = 0;
+	int i = 0;
+	int *ptr;
+	ptr = &i;
+	printf("before push front, size list = %d\n", ft_list_size(el1));
+	ft_list_push_front(&el1,ptr);
+	printf("after push front, size list = %d\n", ft_list_size(el1));
+	free(el1);
+	free(el1->next);
 }
 
 int         main()
 {
-//    test_strlen();
-  //  test_strcpy();
-  //	test_write();
- // 	test_strdup();
-//  	test_read();
-//	test_strcmp();
+    test_strlen();
+    test_strcpy();
+ 	test_write();
+  	test_read();
+	test_strcmp();
 	test_list_size();
+	test_list_push_front();
+  	test_strdup();
     return (0);
 }

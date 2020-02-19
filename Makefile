@@ -6,7 +6,7 @@
 #    By: acoudouy <acoudouy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/18 15:39:04 by acoudouy          #+#    #+#              #
-#    Updated: 2020/02/18 18:16:35 by acoudouy         ###   ########.fr        #
+#    Updated: 2020/02/19 14:43:56 by acoudouy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,11 +20,18 @@ SRC_NAME 	=	ft_read.s			\
 				ft_strlen.s			\
 				ft_write.s
 
+SRC_NAME_B  = 	ft_list_size_bonus.s	\
+				ft_list_push_front_bonus.s
+
 OBJ_PATH	= ./obj
+OBJ_B_PATH	= ./obj
 OBJ_NAME	= $(SRC_NAME:.s=.o)
+OBJ_NAME_B	= $(SRC_NAME_B:.s=.o)
 
 SRC 		= $(addprefix $(SRC_PATH)/, $(SRC_NAME))
+SRC_B 		= $(addprefix $(SRC_PATH)/, $(SRC_NAME))
 OBJ 		= $(addprefix $(OBJ_PATH)/,$(OBJ_NAME))
+OBJ_B 		= $(addprefix $(OBJ_PATH)/,$(OBJ_NAME_B))
 
 CC			= nasm
 FLAG		= -f macho64
@@ -34,23 +41,21 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ)
 
-bonus: $(OBJ) $(OBJLIB)
-	ar rcs $(NAME) $(OBJ) $(OBJLIB)
+bonus: $(OBJ) $(OBJ_B)
+	ar rcs $(NAME) $(OBJ) $(OBJ_B)
 
 $(OBJ_PATH)/%.o: $(SRC_PATH)/%.s
 	@mkdir $(OBJ_PATH) 2> /dev/null || true
 	$(CC) -o $@ $(FLAG) $<
 
-$(OBJLIB_PATH)/%.o: $(LIB_PATH)/%.s
-	@mkdir $(OBJLIB_PATH) 2> /dev/null || true
-	$(CC) -o $@ -c $<
+$(OBJ_B_PATH)/%.o: $(SRC_PATH)/%.s
+	@mkdir $(OBJ_B_PATH) 2> /dev/null || true
+	$(CC) -o $@ $(FLAG) $<
 
 clean:
-	rm -rf $(OBJ) $(OBJLIB) obj/main.o
+	rm -rf $(OBJ) $(OBJ_B) obj/main.o
 
 fclean: clean
 	rm -rf ./obj $(NAME) obj/main.o
-#	rm tester
-#	rm $(NAME)
 
 re: fclean all

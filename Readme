@@ -6,8 +6,7 @@ rcx : 4eme
 
 NASM Assembly quick Reference ("Cheat Sheet")
 https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html
-https://gist.github.com/justinian/385c70347db8aca7ba93e87db90fc9a6
-https://www.bencode.net/blob/nasmcheatsheet.pdf
+https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf
 
 macOS BSD System Calls
 https://sigsegv.pl/osx-bsd-syscalls/
@@ -35,6 +34,11 @@ instructions de saut
 Pour write et read, ce sont des appels systemes:
 http://syscalls.kernelgrok.com/
 
+Pour ft_list_push_front:
+	Alignement de la stack:
+	https://stackoverflow.com/questions/4175281/what-does-it-mean-to-align-the-stack
+	Gestion du push front:
+		- mov eax,variable      ; moves address of variable into eax
+		- mov eax,[variable]    ; loads content of variable into eax
+		https://stackoverflow.com/questions/39474332/assembly-difference-between-var-and-var/39474660
 
-https://github.com/jukazekajou/libasm/blob/master/srcs/ft_write.s
-https://github.com/ska42/libasm/tree/master/srcs
