@@ -6,7 +6,7 @@
 #    By: acoudouy <acoudouy@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/02/18 15:39:04 by acoudouy          #+#    #+#              #
-#    Updated: 2020/02/19 14:43:56 by acoudouy         ###   ########.fr        #
+#    Updated: 2020/02/19 15:03:28 by acoudouy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,10 +52,18 @@ $(OBJ_B_PATH)/%.o: $(SRC_PATH)/%.s
 	@mkdir $(OBJ_B_PATH) 2> /dev/null || true
 	$(CC) -o $@ $(FLAG) $<
 
+test: bonus ./test
+	@cp ./test/test.c .
+	@gcc -c test.c
+	@rm test.c
+	gcc $(NAME) test.o
+	@rm test.o
+
 clean:
 	rm -rf $(OBJ) $(OBJ_B) obj/main.o
 
 fclean: clean
-	rm -rf ./obj $(NAME) obj/main.o
+	rm -rf ./obj $(NAME)
+	rm -rf a.out
 
 re: fclean all
