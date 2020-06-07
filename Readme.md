@@ -10,7 +10,7 @@ Votre librarie doit s’appeller libasm.a
 	- ft_read (man 2 read)
 	- ft_strdup (man 3 strdup, malloc autorisé)
 
-## Ressources:
+## Ressources
 NASM Assembly quick Reference ("Cheat Sheet")
 - [cs.uaf.edu](https://www.cs.uaf.edu/2017/fall/cs301/reference/x86_64.html)
 - [cs.brown.edu](https://cs.brown.edu/courses/cs033/docs/guides/x64_cheatsheet.pdf)
