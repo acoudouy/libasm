@@ -25,7 +25,7 @@ Assembleur
 - [alixis.nasr](http://pageperso.lif.univ-mrs.fr/~alexis.nasr/Ens/Compilation/cm06_x86.pdf)
 
 Appels system
-- [syscalls] (http://syscalls.kernelgrok.com/)
+- [syscalls](http://syscalls.kernelgrok.com/)
 
 Pour ft_list_push_front
 - [Alignement de la stack](https://stackoverflow.com/questions/4175281/what-does-it-mean-to-align-the-stack)
